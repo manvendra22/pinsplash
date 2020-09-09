@@ -5,7 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import './App.css';
+import './styles/App.scss';
 
 import Landing from './containers/Landing'
 import Search from './containers/Search'
