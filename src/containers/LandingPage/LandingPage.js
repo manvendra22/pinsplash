@@ -1,6 +1,6 @@
 import React from 'react'
 
-import "./Landing.scss"
+import "./LandingPage.scss"
 
 import SearchBar from '../../components/SearchBar/SearchBar'
 import ImageBox from '../../components/ImageBox/ImageBox'

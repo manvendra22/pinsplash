@@ -8,9 +8,8 @@ import {
 import './styles/App.scss';
 import "./styles/common.scss";
 
-import Landing from './containers/Landing/Landing'
-import Search from './containers/Search/Search'
-import Images from './containers/Images/Images'
+import LandingPage from './containers/LandingPage/LandingPage'
+import ImageDetails from './containers/ImageDetails/ImageDetails'
 
 function App() {
   return (
@@ -18,13 +17,13 @@ function App() {
       <Router>
         <Switch>
           <Route path="/">
-            <Landing />
+            <LandingPage />
           </Route>
           <Route path="/search">
-            <Search />
+            <LandingPage />
           </Route>
           <Route path="/images">
-            <Images />
+            <ImageDetails />
           </Route>
         </Switch>
       </Router>

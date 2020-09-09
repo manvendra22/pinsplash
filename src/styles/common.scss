@@ -10,13 +10,22 @@
 
 .btn-primary {
   background: #58b291;
-  box-shadow: 0 20px 30px rgba(72, 157, 126, 0.3);
+  box-shadow: 0 10px 15px rgba(72, 157, 126, 0.3);
+}
+
+.button-secondary {
+  background: #6b77e1;
+  box-shadow: 0 10px 15px rgba(64, 80, 216, 0.3);
+}
+
+.button-tertiary {
+  background: #efa0b8;
+  box-shadow: 0 10px 15px rgba(239, 160, 184, 0.3);
 }
 
 header {
   width: 100%;
-  background: white;
-  opacity: 0.9;
+  background: rgba(256, 256, 256, 0.9);
   position: fixed;
   top: 0;
   left: 0;
