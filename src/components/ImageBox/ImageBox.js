@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './ImageBox.scss'
 
-export default function ImageBox({ url }) {
+export default function ImageBox({ url, id }) {
     return (
-        <div className="card">
+        <Link to={`/images/${id}`} className="image-link">
             <img alt="" src={url} />
-        </div>
+        </Link>
     )
 }

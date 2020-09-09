@@ -22,7 +22,7 @@ function App() {
           <Route path="/search">
             <LandingPage />
           </Route>
-          <Route path="/images">
+          <Route path="/images/:id">
             <ImageDetails />
           </Route>
         </Switch>

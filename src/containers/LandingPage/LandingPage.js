@@ -18,8 +18,6 @@ const breakpointColumnsObj = {
 export default function LandingPage() {
     const { status, data, error, isFetching } = useImages();
 
-    console.log(status, data)
-
     if (status === "loading") {
         return "Loading..."
     }
@@ -37,7 +35,7 @@ export default function LandingPage() {
                 columnClassName="my-masonry-grid_column"
             >
                 {data.map(image =>
-                    <ImageBox url={image.urls.raw + 'q=75&fm=jpg&w=300&fit=max'} />
+                    <ImageBox key={image.id} id={image.id} url={image.urls.raw + 'q=75&fm=jpg&w=300&fit=max'} />
                 )}
             </Masonry>
         </main>

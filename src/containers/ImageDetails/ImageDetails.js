@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import "./ImageDetails.scss"
 
@@ -9,15 +9,22 @@ import { useImage } from '../../utility'
 
 
 export default function ImageDetails() {
-    const { status, data, error, isFetching } = useImage();
+    let { id } = useParams();
+    const { status, data, error, isFetching } = useImage(id);
 
-    console.log(status, data)
+    if (status === "loading") {
+        return "Loading..."
+    }
+
+    if (status === "error") {
+        return <span>Error: {error.message}</span>
+    }
 
     return (
         <main className="imageDetails">
             <Link className="link" to="/">&larr; Back</Link>
             <section className="image">
-                <ImageBox url="https://dummyimage.com/1200x500" />
+                <ImageBox url={data.urls.raw + 'q=75&fm=jpg&w=1200&fit=max'} />
             </section>
             <section className="details">
                 <div></div>
