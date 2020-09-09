@@ -26,14 +26,26 @@
   box-shadow: 0 10px 15px rgba(72, 157, 126, 0.3);
 }
 
+.button-primary:hover {
+  background: #489d7e;
+}
+
 .btn-secondary {
   background: #6b77e1;
   box-shadow: 0 10px 15px rgba(64, 80, 216, 0.3);
 }
 
+.button-secondary:hover {
+  background: #4050d8;
+}
+
 .btn-tertiary {
   background: #efa0b8;
   box-shadow: 0 10px 15px rgba(239, 160, 184, 0.3);
+}
+
+.button-tertiary:hover {
+  background: #d790a6;
 }
 
 .link {
