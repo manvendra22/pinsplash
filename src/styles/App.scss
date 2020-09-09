@@ -1,8 +1,6 @@
 @import url("https://rsms.me/inter/inter.css");
-@import "./variables.scss";
 
 * {
-  font-family: "Inter", sans-serif;
   box-sizing: border-box;
 }
 
@@ -14,15 +12,10 @@ html {
 body {
   margin: 0;
   padding: 0;
-  color: $default-text-color;
-  font-size: $normal-font-size;
-}
-
-a {
-  color: $link-text-color;
+  font-family: "Inter", sans-serif;
 }
 
 .App {
-  max-width: 700px;
-  margin: 50px auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }

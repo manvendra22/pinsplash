@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './ImageBox.scss'
+
 export default function ({ url }) {
     return (
         <div className="card">

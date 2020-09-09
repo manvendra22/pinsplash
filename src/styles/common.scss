@@ -1,0 +1,28 @@
+.btn {
+  color: white;
+  font-size: 14px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background: #58b291;
+  box-shadow: 0 20px 30px rgba(72, 157, 126, 0.3);
+}
+
+header {
+  width: 100%;
+  background: white;
+  opacity: 0.9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+}
+
+.image-container {
+  margin-top: 100px;
+}

@@ -10,9 +10,9 @@ export default function ({ searchImage }) {
     }
 
     return (
-        <header className="searchbar">
+        <div className="searchbar">
             <input type="text" placeholder="Search here" value={value} onChange={e => setValue(e.target.value)} />
             <button className="btn btn-primary" onClick={handleClick}>Search</button>
-        </header>
+        </div>
     )
 }

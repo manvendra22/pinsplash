@@ -6,10 +6,11 @@ import {
 } from "react-router-dom";
 
 import './styles/App.scss';
+import "./styles/common.scss";
 
-import Landing from './containers/Landing'
-import Search from './containers/Search'
-import Images from './containers/Images'
+import Landing from './containers/Landing/Landing'
+import Search from './containers/Search/Search'
+import Images from './containers/Images/Images'
 
 function App() {
   return (
