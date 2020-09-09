@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  // Switch,
+  Switch,
   Route,
 } from "react-router-dom";
 
@@ -15,17 +15,17 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <Switch> */}
-        <Route path="/">
-          <Landing />
-        </Route>
-        <Route path="/search">
-          <Search />
-        </Route>
-        <Route path="/images">
-          <Images />
-        </Route>
-        {/* </Switch> */}
+        <Switch>
+          <Route path="/">
+            <Landing />
+          </Route>
+          <Route path="/search">
+            <Search />
+          </Route>
+          <Route path="/images">
+            <Images />
+          </Route>
+        </Switch>
       </Router>
     </div>
   );
