@@ -8,14 +8,14 @@ import ImageBox from '../../components/ImageBox/ImageBox'
 
 export default function ImageDetails() {
     return (
-        <main>
+        <main className="imageDetails">
             <Link className="link" to="/">&larr; Back</Link>
-            <section className="image-container">
+            <section className="image">
                 <ImageBox url="https://dummyimage.com/800x600" />
             </section>
-            <section className="image-details">
+            <section className="details">
                 <div></div>
-                <div className="btn-container">
+                <div className="btns">
                     <button className="btn btn-secondary">Download</button>
                     <button className="btn btn-tertiary">Share</button>
                 </div>

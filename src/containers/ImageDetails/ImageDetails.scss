@@ -1,16 +1,20 @@
-.image-container {
-}
+.imageDetails {
+  .link {
+    margin-bottom: 20px;
+  }
 
-.image-details {
-  display: flex;
-  justify-content: space-between;
-
-  .btn-container {
+  .details {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
 
-    .btn {
-      margin: 10px 0;
+    .btns {
+      display: flex;
+      flex-direction: column;
+
+      .btn {
+        margin-bottom: 10px;
+      }
     }
   }
 }

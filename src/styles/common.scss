@@ -1,3 +1,16 @@
+// Utility classes
+
+// @for $i from 0 to 20 {
+//   @if $i % 5 == 0 {
+//     .p-#{$i} {
+//       padding: $i + px;
+//     }
+//     .m-#{$i} {
+//       margin: $i + px;
+//     }
+//   }
+// }
+
 .btn {
   color: white;
   font-size: 14px;
