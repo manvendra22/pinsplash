@@ -1,0 +1,16 @@
+.image-container {
+}
+
+.image-details {
+  display: flex;
+  justify-content: space-between;
+
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+
+    .btn {
+      margin: 10px 0;
+    }
+  }
+}

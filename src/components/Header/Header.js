@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import './Header.scss'
 
-export default function ({ searchImage }) {
+export default function Header({ searchImage }) {
     const [value, setValue] = useState('')
 
     function handleClick() {

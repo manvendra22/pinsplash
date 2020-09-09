@@ -7,7 +7,7 @@ import Header from '../../components/Header/Header'
 import ImageBox from '../../components/ImageBox/ImageBox'
 
 
-export default function () {
+export default function LandingPage() {
     return (
         <main>
             <Header />

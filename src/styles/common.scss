@@ -13,12 +13,25 @@
   box-shadow: 0 10px 15px rgba(72, 157, 126, 0.3);
 }
 
-.button-secondary {
+.btn-secondary {
   background: #6b77e1;
   box-shadow: 0 10px 15px rgba(64, 80, 216, 0.3);
 }
 
-.button-tertiary {
+.btn-tertiary {
   background: #efa0b8;
   box-shadow: 0 10px 15px rgba(239, 160, 184, 0.3);
+}
+
+.link {
+  text-decoration: none;
+  display: inline-block;
+  color: #1056ff;
+  font-size: 20px;
+  border-bottom: 2px solid #fff;
+  transition: border 300ms;
+}
+
+.link:hover {
+  border-bottom: 2px solid #1056ff;
 }
