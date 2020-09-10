@@ -23,7 +23,7 @@ export default function LandingPage() {
         <main>
             <Header />
             <Masonry
-                className="masonryGrid"
+                className="masonry-grid"
             >
                 {data.map(image =>
                     <ImageBox key={image.id} id={image.id} url={image.urls.raw + 'q=75&fm=jpg&w=300&fit=max'} />
