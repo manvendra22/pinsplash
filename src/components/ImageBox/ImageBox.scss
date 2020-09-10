@@ -1,7 +1,12 @@
 .image-link {
   border-radius: 20px;
+  transition: opacity 300ms;
 
   img {
     border-radius: 20px;
+  }
+
+  &:hover {
+    opacity: 0.9;
   }
 }
