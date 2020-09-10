@@ -8,7 +8,7 @@ import { useImage } from '../../utility/query'
 
 export default function ImageDetails() {
     let { id } = useParams();
-    const { status, data, error, isFetching } = useImage(id);
+    const { status, data, error } = useImage(id);
 
     if (status === "loading") {
         return (

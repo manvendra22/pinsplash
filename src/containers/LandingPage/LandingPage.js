@@ -19,8 +19,6 @@ export default function LandingPage() {
         error,
         fetchMore,
         // canFetchMore
-        // isFetching,
-        // isFetchingMore,
     } = useImages();
 
     if (status === "loading") {
