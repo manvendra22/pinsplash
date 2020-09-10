@@ -23,6 +23,7 @@ header {
     width: 100%;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
     transition: border 300ms;
+    background: #fff;
 
     &:focus-within {
       border: 2px solid #3aabea;
