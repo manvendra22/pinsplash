@@ -49,7 +49,7 @@ export default function LandingPage() {
                 >
                     {data.map(page =>
                         page.map(image =>
-                            <ImageBox key={image.id} id={image.id} url={image.urls.raw + 'q=75&fm=jpg&w=300&fit=max'} />
+                            <ImageBox key={image.id} id={image.id} url={image.urls.raw + 'q=75&fm=jpg&w=500&fit=max'} />
                         )
                     )}
                 </Masonry>
