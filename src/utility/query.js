@@ -2,14 +2,22 @@ import { useQuery, useInfiniteQuery } from "react-query";
 import axios from "axios";
 
 const getImages = async function (key, nextPage = 1) {
-    const { data } = await axios.get(
+    const { data, headers } = await axios.get(
         `https://api.unsplash.com/photos/?page=${nextPage}&client_id=${process.env.REACT_APP_ACCESS_KEY}`
     );
-    return data;
+    return { result: data, link: headers.link };
 };
 
 export function useImages() {
-    return useInfiniteQuery("images", getImages);
+    return useInfiniteQuery("images", getImages, {
+        getFetchMore: ({ link }) => {
+            const links = link.split(',')
+            const last = links[links.length - 1]
+            const position = last.indexOf('page=')
+            const page = last[position + 5]
+            return Number(page)
+        },
+    });
 }
 
 const getImageById = async (key, id) => {
@@ -20,7 +28,7 @@ const getImageById = async (key, id) => {
 };
 
 export function useImage(id) {
-    return useQuery(["post", id], getImageById, {
+    return useQuery(["images", id], getImageById, {
         enabled: id,
     });
 }

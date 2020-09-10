@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import Masonry from 'react-masonry-component';
 import InfiniteScroll from 'react-infinite-scroller';
 
@@ -11,13 +11,14 @@ import { useImages } from '../../utility/query'
 
 
 export default function LandingPage() {
-    const nextPage = useRef(1)
 
     const {
         status,
         data,
         error,
         fetchMore,
+        // isFetching,
+        isFetchingMore
         // canFetchMore
     } = useImages();
 
@@ -30,8 +31,9 @@ export default function LandingPage() {
     }
 
     function fetchMoreData() {
-        fetchMore(nextPage.current + 1)
-        nextPage.current = nextPage.current + 1
+        if (!isFetchingMore) {
+            fetchMore()
+        }
     }
 
     return (
@@ -39,20 +41,21 @@ export default function LandingPage() {
             <Header />
 
             <InfiniteScroll
-                pageStart={0}
+                // pageStart={0}
                 loadMore={fetchMoreData}
                 hasMore={true || false}
-                loader={<div className="loader" key={0}>Loading ...</div>}
+            // loader={<div className="loader" key={0}>Loading ...</div>}
             >
                 <Masonry
                     className="masonry-grid"
                 >
                     {data.map(page =>
-                        page.map(image =>
+                        page.result.map(image =>
                             <ImageBox key={image.id} id={image.id} url={image.urls.raw + 'q=75&fm=jpg&w=500&fit=max'} />
                         )
                     )}
                 </Masonry>
+                {/* <button onClick={fetchMoreData}>Fetch</button> */}
             </InfiniteScroll>
         </main >
     )
