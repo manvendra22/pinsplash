@@ -24,7 +24,7 @@ export default function ImageDetails() {
         <main className="imageDetails">
             <Link className="link" to="/">&larr; Back</Link>
             <section className="image">
-                <ImageBox url={data.urls.raw + 'q=75&fm=jpg&w=1200&fit=max'} />
+                <ImageBox url={data.urls.raw + 'q=75&fm=jpg&h=600&fit=max'} />
             </section>
             <section className="details">
                 <div></div>
