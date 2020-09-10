@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 
 import "./ImageDetails.scss"
 
-import { useImage } from '../../utility'
+import { useImage } from '../../utility/query'
 
 
 export default function ImageDetails() {
