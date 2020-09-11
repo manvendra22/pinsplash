@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation, Link } from "react-router-dom";
 
 import './Header.scss'
 
@@ -8,9 +8,14 @@ import Search from '../../assets/Search'
 export default function Header() {
     const [value, setValue] = useState('')
     let history = useHistory();
+    let location = useLocation();
 
     function handleClick() {
         history.push(`/search?search=${value}`)
+    }
+
+    if (location.pathname.includes('/images')) {
+        return <header><Link className="link" to="/" >&larr; Back</Link></header>
     }
 
     return (

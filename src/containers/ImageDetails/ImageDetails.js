@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import "./ImageDetails.scss"
 
@@ -26,8 +26,7 @@ export default function ImageDetails() {
     }
 
     return (
-        <main className="image-details">
-            <Link className="link" to="/">&larr; Back</Link>
+        <div className="image-details">
             <div className="image">
                 <img alt="" src={data.urls.raw + 'q=75&fm=jpg&h=600&fit=max'} />
             </div>
@@ -67,6 +66,6 @@ export default function ImageDetails() {
                     </button>
                 </div>
             </div>
-        </main>
+        </div>
     )
 }

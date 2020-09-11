@@ -38,9 +38,7 @@ export default function SearchPage() {
     }
 
     return (
-        <main>
-            <ImageView fetchMoreData={fetchMoreData} data={data} />
-        </main >
+        <ImageView fetchMoreData={fetchMoreData} data={data} />
     )
 }
 

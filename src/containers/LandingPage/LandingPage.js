@@ -31,9 +31,7 @@ export default function LandingPage() {
     }
 
     return (
-        <main>
-            <ImageView fetchMoreData={fetchMoreData} data={data} />
-        </main >
+        <ImageView fetchMoreData={fetchMoreData} data={data} />
     )
 }
 
