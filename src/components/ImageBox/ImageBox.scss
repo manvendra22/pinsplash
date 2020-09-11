@@ -1,8 +1,4 @@
 .image-link {
-  width: 22%;
-  margin-left: 2.4%;
-  margin-bottom: 2.4%;
-  border-radius: 20px;
   transition: opacity 300ms;
 
   img {
@@ -12,27 +8,5 @@
 
   &:hover {
     opacity: 0.8;
-  }
-}
-
-@media (max-width: 1023px) {
-  .image-link {
-    width: 30%;
-    margin-left: 2.5%;
-    margin-bottom: 2.5%;
-  }
-}
-
-@media (max-width: 767px) {
-  .image-link {
-    width: 40%;
-    margin-left: 6.7%;
-    margin-bottom: 6.7%;
-  }
-}
-
-@media (max-width: 640px) {
-  .image-link {
-    width: 90%;
   }
 }

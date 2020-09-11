@@ -1,31 +1,30 @@
 import React from 'react'
-import Masonry from 'react-masonry-component';
-import InfiniteScroll from 'react-infinite-scroller';
-
-import "./ImageGrid.scss"
+import { Masonry, useInfiniteLoader } from 'masonic'
 
 import ImageBox from '../ImageBox/ImageBox'
 
 export default function ImageGrid({ fetchMoreData, data }) {
 
+    let showData = []
+    data.forEach(page => {
+        showData.push(...page.result)
+    })
+
+    const maybeLoadMore = useInfiniteLoader(fetchMoreData, {
+        isItemLoaded: (index, items) => !!items[index],
+    })
+
     return (
-        <InfiniteScroll
-            // pageStart={0}
-            loadMore={fetchMoreData}
-            hasMore={true || false}
-        // loader={<div className="loader" key={0}>Loading ...</div>}
-        >
-            <Masonry
-                className="masonry-grid"
-            >
-                {data.map(page =>
-                    page.result.map(image =>
-                        <ImageBox key={image.id} id={image.id} url={image.urls.raw + 'q=75&fm=jpg&w=500&fit=max'} />
-                    )
-                )}
-            </Masonry>
-            {/* <button onClick={fetchMoreData}>Fetch</button> */}
-        </InfiniteScroll>
+        <Masonry
+            items={showData}
+            columnGutter={8}
+            render={ImageGrids}
+            onRender={maybeLoadMore}
+        />
     )
 }
+
+const ImageGrids = ({ data: { id, urls } }) => {
+    return < ImageBox key={id} id={id} url={urls.raw + 'q=75&fm=jpg&w=500&fit=max'} />
+};
 
