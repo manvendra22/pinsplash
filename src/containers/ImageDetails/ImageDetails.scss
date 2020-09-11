@@ -7,6 +7,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    font-size: 14px;
 
     .statistics {
       display: flex;
@@ -28,6 +29,8 @@
       align-items: center;
 
       .icon {
+        width: 20px;
+        height: 20px;
         margin-right: 5px;
       }
     }
@@ -35,18 +38,12 @@
     .description {
       display: flex;
       align-items: center;
-      font-size: 14px;
       color: #767676;
     }
 
     .location {
       color: black;
       margin-right: 20px;
-
-      .icon {
-        width: 20px;
-        height: 20px;
-      }
     }
 
     .btns {
