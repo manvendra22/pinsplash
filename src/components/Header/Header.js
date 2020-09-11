@@ -10,7 +10,7 @@ export default function Header() {
     let history = useHistory();
 
     function handleClick() {
-        history.push('/search?search="wanderlust')
+        history.push(`/search?search=${value}`)
     }
 
     return (
