@@ -1,9 +1,12 @@
 import { useQuery, useInfiniteQuery } from "react-query";
 import axios from "axios";
 
+const url = 'https://api.unsplash.com'
+const clientId = process.env.REACT_APP_ACCESS_KEY
+
 const getImages = async function (key, nextPage = 1) {
     const { data, headers } = await axios.get(
-        `https://api.unsplash.com/photos/?page=${nextPage}&client_id=${process.env.REACT_APP_ACCESS_KEY}`
+        `${url}/photos/?page=${nextPage}&client_id=${clientId}`
     );
     return { result: data, link: headers.link };
 };
@@ -24,7 +27,7 @@ export function useImages() {
 
 const getSearchImages = async function (key, query, nextPage = 1) {
     const { data, headers } = await axios.get(
-        `https://api.unsplash.com/search/photos/?query=${query}&page=${nextPage}&client_id=${process.env.REACT_APP_ACCESS_KEY}`
+        `${url}/search/photos/?query=${query}&page=${nextPage}&client_id=${clientId}`
     );
     return { result: data.results, link: headers.link };
 };
@@ -45,7 +48,7 @@ export function useSearchImages(query) {
 
 const getImageById = async (key, id) => {
     const { data } = await axios.get(
-        `https://api.unsplash.com/photos/${id}?client_id=${process.env.REACT_APP_ACCESS_KEY}`
+        `${url}/photos/${id}?client_id=${clientId}`
     );
     return data;
 };

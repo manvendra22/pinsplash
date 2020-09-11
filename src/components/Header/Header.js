@@ -1,17 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useHistory, useLocation, Link } from "react-router-dom";
 
 import './Header.scss'
 
 import Search from '../../assets/Search'
 
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
+
 export default function Header() {
     const [value, setValue] = useState('')
     let history = useHistory();
     let location = useLocation();
+    let query = useRef(useQuery());
+
+    useEffect(function () {
+        let search = query.current.get("search")
+        if (search) {
+            setValue(search)
+        }
+    }, [])
 
     function handleClick() {
-        history.push(`/search?search=${value}`)
+        if (value) {
+            history.push(`/search?search=${value}`)
+        }
     }
 
     if (location.pathname.includes('/images')) {
