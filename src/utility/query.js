@@ -23,8 +23,6 @@ export function useImages() {
     });
 }
 
-
-
 const getSearchImages = async function (key, query, nextPage = 1) {
     const { data, headers } = await axios.get(
         `${url}/search/photos/?query=${query}&page=${nextPage}&client_id=${clientId}`
@@ -44,8 +42,6 @@ export function useSearchImages(query) {
     });
 }
 
-
-
 const getImageById = async (key, id) => {
     const { data } = await axios.get(
         `${url}/photos/${id}?client_id=${clientId}`
@@ -57,4 +53,21 @@ export function useImage(id) {
     return useQuery(["images", id], getImageById, {
         enabled: id,
     });
+}
+
+export function triggerDownload(fullUrl, triggerUrl) {
+    axios({
+        url: fullUrl,
+        method: 'GET',
+        responseType: 'blob', // important
+    }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'image.jpg');
+        document.body.appendChild(link);
+        link.click();
+    });
+
+    axios.get(`${triggerUrl}?client_id=${clientId}`)
 }

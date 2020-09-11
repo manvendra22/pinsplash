@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 import "./ImageDetails.scss"
 
-import { useImage } from '../../utility/query'
+import { useImage, triggerDownload } from '../../utility/query'
 
 import Like from '../../assets/Like'
 import View from '../../assets/View'
@@ -23,6 +23,22 @@ export default function ImageDetails() {
 
     if (status === "error") {
         return <span>Error: {error.message}</span>
+    }
+
+    function downloadImage() {
+        triggerDownload(data.urls.full, data.links.download_location)
+    }
+
+    function shareImage() {
+        if (navigator.share) {
+            navigator.share({
+                title: 'Image',
+                text: 'Check out this image',
+                url: window.location.href
+            })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+        }
     }
 
     return (
@@ -66,11 +82,11 @@ export default function ImageDetails() {
                     </div>
                 </div>
                 <div className="btns">
-                    <button className="btn btn-secondary icon-container">
+                    <button className="btn btn-secondary icon-container" onClick={downloadImage}>
                         <Download className="icon" color="#fff" />
                         Download
                     </button>
-                    <button className="btn btn-tertiary icon-container">
+                    <button className="btn btn-tertiary icon-container" onClick={shareImage}>
                         <Share className="icon" color="#fff" />
                         Share
                     </button>
