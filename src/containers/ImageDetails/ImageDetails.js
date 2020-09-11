@@ -17,9 +17,7 @@ export default function ImageDetails() {
     const { status, data, error } = useImage(id);
 
     if (status === "loading") {
-        return (
-            'Loading...'
-        )
+        return 'Loading...'
     }
 
     if (status === "error") {
