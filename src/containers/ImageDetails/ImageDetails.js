@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import cogoToast from 'cogo-toast';
 
 import "./ImageDetails.scss"
 
@@ -40,6 +41,7 @@ export default function ImageDetails() {
                 .catch((error) => console.log('Error sharing', error));
         } else {
             navigator.clipboard.writeText(window.location.href)
+            cogoToast.success("Copied!", { position: 'top-right' });
         }
     }
 
@@ -51,21 +53,21 @@ export default function ImageDetails() {
             <div className="details">
                 <div>
                     <div className="statistics">
-                        <div>
+                        <div className="statistic">
                             <div className="icon-container">
                                 <View className="icon" color="#2c3e50" />
                                 Views
                             </div>
                             <div className="value">{data.views}</div>
                         </div>
-                        <div>
+                        <div className="statistic">
                             <div className="icon-container">
                                 <Like className="icon" color="#2c3e50" />
                                 Likes
                             </div>
                             <div className="value">{data.likes}</div>
                         </div>
-                        <div>
+                        <div className="statistic">
                             <div className="icon-container">
                                 <Download className="icon" color="#2c3e50" />
                                 Downloads
