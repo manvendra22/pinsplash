@@ -1,5 +1,8 @@
 import React from 'react'
-import { Masonry, useInfiniteLoader } from 'masonic'
+import {
+    Masonry,
+    useInfiniteLoader,
+} from 'masonic'
 
 import ImageBox from '../ImageBox/ImageBox'
 
@@ -25,6 +28,6 @@ export default function ImageGrid({ fetchMoreData, data }) {
 }
 
 const ImageGrids = ({ data: { id, urls } }) => {
-    return < ImageBox key={id} id={id} url={urls.raw + 'q=75&fm=jpg&w=500&fit=max'} />
+    return < ImageBox key={id} id={id} url={urls.small} />
 };
 

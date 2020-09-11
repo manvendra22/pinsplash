@@ -37,8 +37,8 @@ export default function ImageDetails() {
                 text: 'Check out this image',
                 url: window.location.href
             })
-                .then(() => console.log('Successful share'))
-                .catch((error) => console.log('Error sharing', error));
+                .then(() => cogoToast.success("Shared!", { position: 'top-right' }))
+                .catch((error) => cogoToast.error(error, { position: 'top-right' }));
         } else {
             navigator.clipboard.writeText(window.location.href)
             cogoToast.success("Copied!", { position: 'top-right' });

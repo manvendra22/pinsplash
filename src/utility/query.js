@@ -18,8 +18,8 @@ export function useImages() {
             const links = link.split(',')
             const last = links[links.length - 1]
             const found = last.match(regex);
-            const pageNo = found[0].replace(/\D/g, '')
-            return Number(pageNo)
+            const pageNo = found[0].match(/(\d+)/)
+            return Number(pageNo[0])
         },
     });
 }
@@ -37,8 +37,8 @@ export function useSearchImages(query) {
             const links = link.split(',')
             const last = links[links.length - 1]
             const found = last.match(regex);
-            const pageNo = found[0].replace(/\D/g, '')
-            return Number(pageNo)
+            const pageNo = found[0].match(/(\d+)/)
+            return Number(pageNo[0])
         },
     });
 }
