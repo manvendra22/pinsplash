@@ -1,12 +1,13 @@
 import { useQuery, useInfiniteQuery } from "react-query";
 import axios from "axios";
 
+const regex = /(&.*?&)/g;
 const url = 'https://api.unsplash.com'
 const clientId = process.env.REACT_APP_ACCESS_KEY
 
 const getImages = async function (key, nextPage = 1) {
     const { data, headers } = await axios.get(
-        `${url}/photos/?page=${nextPage}&client_id=${clientId}`
+        `${url}/photos/?per_page=20&page=${nextPage}&client_id=${clientId}`
     );
     return { result: data, link: headers.link };
 };
@@ -16,16 +17,16 @@ export function useImages() {
         getFetchMore: ({ link }) => {
             const links = link.split(',')
             const last = links[links.length - 1]
-            const position = last.indexOf('page=')
-            const page = last[position + 5]
-            return Number(page)
+            const found = last.match(regex);
+            const pageNo = found[0].replace(/\D/g, '')
+            return Number(pageNo)
         },
     });
 }
 
 const getSearchImages = async function (key, query, nextPage = 1) {
     const { data, headers } = await axios.get(
-        `${url}/search/photos/?query=${query}&page=${nextPage}&client_id=${clientId}`
+        `${url}/search/photos/?per_page=20&query=${query}&page=${nextPage}&client_id=${clientId}`
     );
     return { result: data.results, link: headers.link };
 };
@@ -35,9 +36,9 @@ export function useSearchImages(query) {
         getFetchMore: ({ link }) => {
             const links = link.split(',')
             const last = links[links.length - 1]
-            const position = last.indexOf('page=')
-            const page = last[position + 5]
-            return Number(page)
+            const found = last.match(regex);
+            const pageNo = found[0].replace(/\D/g, '')
+            return Number(pageNo)
         },
     });
 }

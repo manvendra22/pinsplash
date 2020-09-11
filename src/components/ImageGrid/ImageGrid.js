@@ -5,7 +5,7 @@ import ImageBox from '../ImageBox/ImageBox'
 
 export default function ImageGrid({ fetchMoreData, data }) {
 
-    let showData = []
+    let showData = [] // Fix this logic, find alternative
     data.forEach(page => {
         showData.push(...page.result)
     })
