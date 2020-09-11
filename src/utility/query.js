@@ -20,6 +20,29 @@ export function useImages() {
     });
 }
 
+
+
+const getSearchImages = async function (key, query, nextPage = 1) {
+    const { data, headers } = await axios.get(
+        `https://api.unsplash.com/search/photos/?query=${query}&page=${nextPage}&client_id=${process.env.REACT_APP_ACCESS_KEY}`
+    );
+    return { result: data, link: headers.link };
+};
+
+export function useSearchImages(query) {
+    return useInfiniteQuery(['images', query], getSearchImages, {
+        getFetchMore: ({ link }) => {
+            const links = link.split(',')
+            const last = links[links.length - 1]
+            const position = last.indexOf('page=')
+            const page = last[position + 5]
+            return Number(page)
+        },
+    });
+}
+
+
+
 const getImageById = async (key, id) => {
     const { data } = await axios.get(
         `https://api.unsplash.com/photos/${id}?client_id=${process.env.REACT_APP_ACCESS_KEY}`
