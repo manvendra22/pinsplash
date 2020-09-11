@@ -9,7 +9,7 @@ import Like from '../../assets/Like'
 import View from '../../assets/View'
 import Share from '../../assets/Share'
 import Download from '../../assets/Download'
-
+import Location from '../../assets/Location'
 
 export default function ImageDetails() {
     let { id } = useParams();
@@ -31,36 +31,46 @@ export default function ImageDetails() {
                 <img alt="" src={data.urls.raw + 'q=75&fm=jpg&h=600&fit=max'} />
             </div>
             <div className="details">
-                <div className="info">
-                    <div>
-                        <div className="header">
-                            <View className="icon" color="#2c3e50" />
-                        Views
+                <div>
+                    <div className="statistics">
+                        <div>
+                            <div className="icon-container">
+                                <View className="icon" color="#2c3e50" />
+                                Views
+                            </div>
+                            <div className="value">{data.views}</div>
                         </div>
-                        <div className="value">{data.views}</div>
-                    </div>
-                    <div>
-                        <div className="header">
-                            <Like className="icon" color="#2c3e50" />
-                        Likes
+                        <div>
+                            <div className="icon-container">
+                                <Like className="icon" color="#2c3e50" />
+                                Likes
+                            </div>
+                            <div className="value">{data.likes}</div>
                         </div>
-                        <div className="value">{data.likes}</div>
-                    </div>
-                    <div>
-                        <div className="header">
-                            <Download className="icon" color="#2c3e50" />
-                        Downloads
+                        <div>
+                            <div className="icon-container">
+                                <Download className="icon" color="#2c3e50" />
+                                Downloads
+                            </div>
+                            <div className="value">{data.downloads}</div>
                         </div>
-                        <div className="value">{data.downloads}</div>
                     </div>
-                    {/* <div>{data.description}</div> */}
+                    <div className="description">
+                        {data.location.title &&
+                            <div className="location icon-container">
+                                <Location className="icon" color="#2c3e50" />
+                                {data.location.title}
+                            </div>
+                        }
+                        <div>{data.description}</div>
+                    </div>
                 </div>
                 <div className="btns">
-                    <button className="btn btn-secondary">
+                    <button className="btn btn-secondary icon-container">
                         <Download className="icon" color="#fff" />
                         Download
                     </button>
-                    <button className="btn btn-tertiary">
+                    <button className="btn btn-tertiary icon-container">
                         <Share className="icon" color="#fff" />
                         Share
                     </button>
