@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ImageGrid from '../ImageGrid/ImageGrid'
+import ImageGrid from '../../components/ImageGrid/ImageGrid'
 
 import { useImages } from '../../utility/query'
 

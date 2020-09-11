@@ -4,7 +4,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 
 import "./ImageGrid.scss"
 
-import ImageBox from '../../components/ImageBox/ImageBox'
+import ImageBox from '../ImageBox/ImageBox'
 
 export default function ImageGrid({ fetchMoreData, data }) {
 

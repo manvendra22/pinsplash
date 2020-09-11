@@ -38,6 +38,8 @@ export default function ImageDetails() {
             })
                 .then(() => console.log('Successful share'))
                 .catch((error) => console.log('Error sharing', error));
+        } else {
+            navigator.clipboard.writeText(window.location.href)
         }
     }
 
