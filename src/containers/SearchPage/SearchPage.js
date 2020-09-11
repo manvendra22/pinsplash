@@ -1,13 +1,17 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 import ImageView from '../ImagesView/ImageView'
 
 import { useSearchImages } from '../../utility/query'
 
 
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
+
 export default function SearchPage() {
-    let { search } = useParams();
+    let query = useQuery();
 
     const {
         status,
@@ -17,7 +21,7 @@ export default function SearchPage() {
         // isFetching,
         isFetchingMore
         // canFetchMore
-    } = useSearchImages(search);
+    } = useSearchImages(query.get("search"));
 
     if (status === "loading") {
         return "Loading..."

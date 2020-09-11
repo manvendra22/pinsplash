@@ -10,6 +10,7 @@ import './styles/App.scss';
 import "./styles/common.scss";
 
 import LandingPage from './containers/LandingPage/LandingPage'
+import SearchPage from './containers/SearchPage/SearchPage'
 import ImageDetails from './containers/ImageDetails/ImageDetails'
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
             <LandingPage />
           </Route>
           <Route path="/search">
-            <LandingPage />
+            <SearchPage />
           </Route>
           <Route path="/images/:id">
             <ImageDetails />

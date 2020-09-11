@@ -26,7 +26,7 @@ const getSearchImages = async function (key, query, nextPage = 1) {
     const { data, headers } = await axios.get(
         `https://api.unsplash.com/search/photos/?query=${query}&page=${nextPage}&client_id=${process.env.REACT_APP_ACCESS_KEY}`
     );
-    return { result: data, link: headers.link };
+    return { result: data.results, link: headers.link };
 };
 
 export function useSearchImages(query) {

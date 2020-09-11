@@ -15,8 +15,8 @@ function Icon({ className, color }) {
       viewBox="0 0 24 24"
     >
       <path stroke="none" d="M0 0h24v24H0z"></path>
-      <circle cx="12" cy="12" r="2"></circle>
-      <path d="M2 12l1.5 2a11 11 0 0017 0l1.5-2M2 12l1.5-2a11 11 0 0117 0l1.5 2"></path>
+      <circle cx="10" cy="10" r="7"></circle>
+      <path d="M21 21L15 15"></path>
     </svg>
   );
 }

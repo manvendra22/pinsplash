@@ -8,10 +8,10 @@ function Icon({ className, color }) {
       height="24"
       fill="none"
       stroke={color}
+      className={className}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="1.5"
-      className={className}
       viewBox="0 0 24 24"
     >
       <path stroke="none" d="M0 0h24v24H0z"></path>
