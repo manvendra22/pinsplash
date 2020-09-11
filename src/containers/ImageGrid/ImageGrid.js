@@ -2,11 +2,11 @@ import React from 'react'
 import Masonry from 'react-masonry-component';
 import InfiniteScroll from 'react-infinite-scroller';
 
-import "./ImageView.scss"
+import "./ImageGrid.scss"
 
 import ImageBox from '../../components/ImageBox/ImageBox'
 
-export default function ImageView({ fetchMoreData, data }) {
+export default function ImageGrid({ fetchMoreData, data }) {
 
     return (
         <InfiniteScroll

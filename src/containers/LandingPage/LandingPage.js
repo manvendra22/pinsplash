@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ImageView from '../ImagesView/ImageView'
+import ImageGrid from '../ImageGrid/ImageGrid'
 
 import { useImages } from '../../utility/query'
 
@@ -31,7 +31,7 @@ export default function LandingPage() {
     }
 
     return (
-        <ImageView fetchMoreData={fetchMoreData} data={data} />
+        <ImageGrid fetchMoreData={fetchMoreData} data={data} />
     )
 }
 

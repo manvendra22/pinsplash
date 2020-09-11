@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 
-import ImageView from '../ImagesView/ImageView'
+import ImageGrid from '../ImageGrid/ImageGrid'
 
 import { useSearchImages } from '../../utility/query'
 
@@ -38,7 +38,7 @@ export default function SearchPage() {
     }
 
     return (
-        <ImageView fetchMoreData={fetchMoreData} data={data} />
+        <ImageGrid fetchMoreData={fetchMoreData} data={data} />
     )
 }
 
