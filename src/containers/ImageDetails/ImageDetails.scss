@@ -32,17 +32,6 @@
       }
     }
 
-    .icon-container {
-      display: flex;
-      align-items: center;
-
-      .icon {
-        width: 20px;
-        height: 20px;
-        margin-right: 5px;
-      }
-    }
-
     .description {
       display: flex;
       align-items: center;
@@ -52,6 +41,10 @@
     .location {
       color: black;
       margin-right: 20px;
+    }
+
+    .icon {
+      margin-right: 5px;
     }
 
     .btns {

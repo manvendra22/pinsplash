@@ -61,3 +61,13 @@
 .link:hover {
   border-bottom: 2px solid #1056ff;
 }
+
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}

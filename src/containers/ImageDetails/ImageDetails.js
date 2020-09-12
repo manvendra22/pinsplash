@@ -92,8 +92,7 @@ export default function ImageDetails() {
                             <div className="location icon-container">
                                 <Location className="icon" color="#2c3e50" />
                                 {data.location.title}
-                            </div>
-                        }
+                            </div>}
                         <div>{data.description}</div>
                     </div>
                 </div>
