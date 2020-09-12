@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import cogoToast from 'cogo-toast';
 
@@ -15,6 +15,7 @@ import Location from '../../assets/Location'
 export default function ImageDetails() {
     let { id } = useParams();
     const { status, data, error } = useImage(id);
+    const downloadButton = useRef()
 
     if (status === "loading") {
         return 'Loading...'
@@ -24,8 +25,21 @@ export default function ImageDetails() {
         return <span>Error: {error.message}</span>
     }
 
+    function onDownloadProgress(progressEvent) {
+        const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
+        downloadButton.current.firstChild.style.width = `${progress}%`
+    }
+
+    function downloadComplete() {
+        downloadButton.current.disabled = false;
+        downloadButton.current.style.background = null;
+        downloadButton.current.firstChild.style.width = '0%'
+    }
+
     function downloadImage() {
-        triggerDownload(data.urls.full, data.links.download_location)
+        downloadButton.current.disabled = true;
+        downloadButton.current.style.background = '#6b77e1';
+        triggerDownload(data.urls.full, data.links.download_location, onDownloadProgress, downloadComplete)
     }
 
     function shareImage() {
@@ -84,7 +98,8 @@ export default function ImageDetails() {
                     </div>
                 </div>
                 <div className="btns">
-                    <button className="btn btn-secondary icon-container" onClick={downloadImage}>
+                    <button ref={downloadButton} className="btn btn-secondary icon-container" onClick={downloadImage}>
+                        <span className="progress"></span>
                         <Download className="icon" color="#fff" />
                         Download
                     </button>
