@@ -56,10 +56,10 @@
 
     .btns {
       display: flex;
-      flex-direction: column;
+      align-items: center;
 
       .btn:first-child {
-        margin-bottom: 10px;
+        margin-right: 10px;
       }
     }
   }
@@ -68,16 +68,6 @@
     .details {
       flex-direction: column;
       align-items: center;
-
-      .btns {
-        flex-direction: row;
-        margin-top: 20px;
-
-        .btn:first-child {
-          margin-bottom: unset;
-          margin-right: 10px;
-        }
-      }
     }
   }
 }
