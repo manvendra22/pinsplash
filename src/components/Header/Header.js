@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useHistory, useLocation, Link } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import './Header.scss'
 
@@ -28,8 +28,12 @@ export default function Header() {
         }
     }
 
+    function goBack() {
+        history.goBack()
+    }
+
     if (location.pathname.includes('/images')) {
-        return <header><Link className="link" to="/" >&larr; Back</Link></header>
+        return <header><span className="link" onClick={goBack}>&larr; Back</span></header>
     }
 
     return (

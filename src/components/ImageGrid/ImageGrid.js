@@ -7,14 +7,12 @@ import {
 import ImageBox from '../ImageBox/ImageBox'
 
 export default function ImageGrid({ fetchMoreData, data }) {
-
-    let showData = [] // Fix this logic, find alternative
-    data.forEach(page => {
-        showData.push(...page.result)
+    let showData = data.flatMap(page => {
+        return page.result
     })
 
     const maybeLoadMore = useInfiniteLoader(fetchMoreData, {
-        isItemLoaded: (index, items) => !!items[index],
+        isItemLoaded: (index, items) => !!items[index], // TODO: Check this logic, working
     })
 
     return (
@@ -28,6 +26,6 @@ export default function ImageGrid({ fetchMoreData, data }) {
 }
 
 const ImageGrids = ({ data: { id, urls } }) => {
-    return < ImageBox key={id} id={id} url={urls.small} />
+    return <ImageBox key={id} id={id} url={urls.small} />
 };
 
