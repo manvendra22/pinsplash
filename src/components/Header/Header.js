@@ -13,10 +13,9 @@ export default function Header() {
     const [value, setValue] = useState('')
     let history = useHistory();
     let location = useLocation();
-    let query = useRef(useQuery());
+    let search = useQuery().get("search")
 
     useEffect(function () {
-        let search = query.current.get("search")
         if (search) {
             setValue(search)
         }

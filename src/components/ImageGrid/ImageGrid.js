@@ -18,7 +18,7 @@ export default function ImageGrid({ fetchMoreData, data }) {
     return (
         <Masonry
             items={showData}
-            columnGutter={8}
+            columnGutter={12}
             columnWidth={240}
             render={ImageGrids}
             onRender={maybeLoadMore}
@@ -26,7 +26,12 @@ export default function ImageGrid({ fetchMoreData, data }) {
     )
 }
 
-const ImageGrids = ({ data: { id, urls } }) => {
-    return <ImageBox key={id} id={id} url={urls.small} />
-};
+const ImageGrids = ({ data: { id, urls, color, width, height }, width: widthT }) => {
+    // const aspectRatio = width / height;
 
+    // const heightT = widthT * aspectRatio
+
+    // return <div style={{ background: color }} >
+    return <ImageBox key={id} id={id} url={urls.raw + 'q=75&fm=jpg&w=480&fit=max'} />
+    // </div >
+};

@@ -6,7 +6,7 @@ import './ImageBox.scss'
 export default function ImageBox({ url, id }) {
     return (
         <Link to={`/images/${id}`} className="image-link">
-            <img alt="" src={url} />
+            <img alt="" src={url} loading="lazy" />
         </Link>
     )
 }
