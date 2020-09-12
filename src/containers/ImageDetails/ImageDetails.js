@@ -57,10 +57,13 @@ export default function ImageDetails() {
         }
     }
 
+    const { urls, views, likes, downloads, location, description, color, width, height } = data
+    const widthT = width / height * 600;
+
     return (
         <div className="image-details">
-            <div className="image">
-                <img alt="" src={data.urls.raw + 'q=75&fm=jpg&h=600&fit=max'} />
+            <div className="image" style={{ background: color, height: '600px', width: widthT }}>
+                <img alt="" src={urls.raw + 'q=75&fm=jpg&h=600&fit=max'} />
             </div>
             <div className="details">
                 <div>
@@ -70,30 +73,30 @@ export default function ImageDetails() {
                                 <View className="icon" color="#2c3e50" />
                                 Views
                             </div>
-                            <div className="value">{data.views}</div>
+                            <div className="value">{views}</div>
                         </div>
                         <div className="statistic">
                             <div className="icon-container">
                                 <Like className="icon" color="#2c3e50" />
                                 Likes
                             </div>
-                            <div className="value">{data.likes}</div>
+                            <div className="value">{likes}</div>
                         </div>
                         <div className="statistic">
                             <div className="icon-container">
                                 <Download className="icon" color="#2c3e50" />
                                 Downloads
                             </div>
-                            <div className="value">{data.downloads}</div>
+                            <div className="value">{downloads}</div>
                         </div>
                     </div>
                     <div className="description">
-                        {data.location.title &&
+                        {location.title &&
                             <div className="location icon-container">
                                 <Location className="icon" color="#2c3e50" />
-                                {data.location.title}
+                                {location.title}
                             </div>}
-                        <div>{data.description}</div>
+                        <div>{description}</div>
                     </div>
                 </div>
                 <div className="btns">

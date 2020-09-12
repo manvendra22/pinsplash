@@ -27,11 +27,9 @@ export default function ImageGrid({ fetchMoreData, data }) {
 }
 
 const ImageGrids = ({ data: { id, urls, color, width, height }, width: widthT }) => {
-    // const aspectRatio = width / height;
+    const heightT = height / width * widthT;
 
-    // const heightT = widthT * aspectRatio
-
-    // return <div style={{ background: color }} >
-    return <ImageBox key={id} id={id} url={urls.raw + 'q=75&fm=jpg&w=480&fit=max'} />
-    // </div >
+    return <div style={{ background: color, borderRadius: '20px', height: heightT }} >
+        <ImageBox key={id} id={id} url={urls.raw + 'q=75&fm=jpg&w=480&fit=max'} />
+    </div >
 };
