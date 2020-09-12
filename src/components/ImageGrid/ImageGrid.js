@@ -19,6 +19,7 @@ export default function ImageGrid({ fetchMoreData, data }) {
         <Masonry
             items={showData}
             columnGutter={8}
+            columnWidth={240}
             render={ImageGrids}
             onRender={maybeLoadMore}
         />
