@@ -12,17 +12,19 @@ import Share from '../../assets/Share'
 import Download from '../../assets/Download'
 import Location from '../../assets/Location'
 
+import Loader from '../../components/Loader/Loader'
+
 export default function ImageDetails() {
     let { id } = useParams();
     const { status, data, error } = useImage(id);
     const downloadButton = useRef()
 
     if (status === "loading") {
-        return 'Loading...'
+        return <Loader />
     }
 
     if (status === "error") {
-        return <span>Error: {error.message}</span>
+        return <div className="error">Error: {error.message}</div>
     }
 
     function onDownloadProgress(progressEvent) {

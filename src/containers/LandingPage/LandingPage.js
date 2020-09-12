@@ -1,6 +1,7 @@
 import React from 'react'
 
 import ImageGrid from '../../components/ImageGrid/ImageGrid'
+import Loader from '../../components/Loader/Loader'
 
 import { useImages } from '../../utility/query'
 
@@ -17,11 +18,11 @@ export default function LandingPage() {
     } = useImages();
 
     if (status === "loading") {
-        return "Loading..."
+        return <Loader />
     }
 
     if (status === "error") {
-        return <span>Error: {error.message}</span>
+        return <div className="error">Error: {error.message}</div>
     }
 
     function fetchMoreData() {
