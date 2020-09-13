@@ -12,8 +12,8 @@ export default function LandingPage() {
         data,
         error,
         fetchMore,
-        // isFetching,
-        // isFetchingMore
+        isFetching,
+        isFetchingMore
         // canFetchMore
     } = useImages();
 
@@ -26,9 +26,9 @@ export default function LandingPage() {
     }
 
     function fetchMoreData() {
-        // if (!isFetching && !isFetchingMore) {
-        fetchMore()
-        // }
+        if (!isFetching && !isFetchingMore) {
+            fetchMore()
+        }
     }
 
     return (
