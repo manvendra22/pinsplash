@@ -3,6 +3,7 @@ import {
     Masonry,
     useInfiniteLoader,
 } from 'masonic'
+import { useDebounceCallback } from '@react-hook/debounce'
 
 import ImageBox from '../ImageBox/ImageBox'
 
@@ -12,11 +13,14 @@ export default function ImageGrid({ fetchMoreData, data }) {
     })
 
     const maybeLoadMore = useInfiniteLoader(function () {
+        console.log('maybeLoadMore', arguments)
         fetchMoreData()
     }, {
-        threshold: 1,
+        // threshold: 1,
         minimumBatchSize: 30
     })
+
+    const debouncedCallback = useDebounceCallback(maybeLoadMore, 300)
 
     return (
         <Masonry
@@ -25,7 +29,7 @@ export default function ImageGrid({ fetchMoreData, data }) {
             columnWidth={240}
             overscanBy={1}
             render={ImageGrids}
-            onRender={maybeLoadMore}
+            onRender={debouncedCallback}
         />
     )
 }

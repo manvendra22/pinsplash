@@ -15,6 +15,7 @@ const getImages = async function (key, nextPage = 1) {
 export function useImages() {
     return useInfiniteQuery("images", getImages, {
         getFetchMore: ({ link }, other) => {
+            //console.log(other) TODO: Check alternate logic?
             const links = link.split(',')
             const last = links[links.length - 1]
             const found = last.match(regex);

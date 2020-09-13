@@ -13,8 +13,8 @@ export default function LandingPage() {
         error,
         fetchMore,
         isFetching,
-        isFetchingMore
-        // canFetchMore
+        isFetchingMore,
+        // canFetchMore TODO: Use this to handle end of data case
     } = useImages();
 
     if (status === "loading") {
@@ -26,6 +26,7 @@ export default function LandingPage() {
     }
 
     function fetchMoreData() {
+        // console.log({ canFetchMore })
         if (!isFetching && !isFetchingMore) {
             fetchMore()
         }
