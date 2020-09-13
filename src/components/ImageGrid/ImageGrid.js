@@ -12,8 +12,8 @@ export default function ImageGrid({ fetchMoreData, data }) {
     })
 
     const maybeLoadMore = useInfiniteLoader(fetchMoreData, {
-        threshold: 4,
-        minimumBatchSize: 20
+        // threshold: 4,
+        minimumBatchSize: 40
     })
 
     return (
