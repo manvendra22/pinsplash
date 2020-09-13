@@ -26,9 +26,9 @@ export default function LandingPage() {
     }
 
     function fetchMoreData() {
-        if (!isFetching && !isFetchingMore) {
-            fetchMore()
-        }
+        // if (!isFetching && !isFetchingMore) {
+        fetchMore()
+        // }
     }
 
     return (

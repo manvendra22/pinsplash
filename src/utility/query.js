@@ -6,6 +6,7 @@ const url = 'https://api.unsplash.com'
 const clientId = process.env.REACT_APP_ACCESS_KEY
 
 const getImages = async function (key, nextPage = 1) {
+    console.log({ nextPage })
     const { data, headers } = await axios.get(
         `${url}/photos/?per_page=40&page=${nextPage}&client_id=${clientId}`
     );
@@ -19,6 +20,7 @@ export function useImages() {
             const last = links[links.length - 1]
             const found = last.match(regex);
             const pageNo = found[0].match(/(\d+)/)
+            console.log({ pageNo: pageNo[0] })
             return Number(pageNo[0])
         },
     });
