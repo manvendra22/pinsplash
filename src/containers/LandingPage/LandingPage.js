@@ -12,7 +12,7 @@ export default function LandingPage() {
         data,
         error,
         fetchMore,
-        // isFetching,
+        isFetching,
         isFetchingMore
         // canFetchMore
     } = useImages();
@@ -26,7 +26,9 @@ export default function LandingPage() {
     }
 
     function fetchMoreData() {
+        console.log("Fetching called", isFetching, isFetchingMore)
         if (!isFetchingMore) {
+            console.log("Fetching...")
             fetchMore()
         }
     }

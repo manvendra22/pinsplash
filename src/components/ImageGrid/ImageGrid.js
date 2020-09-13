@@ -11,16 +11,14 @@ export default function ImageGrid({ fetchMoreData, data }) {
         return page.result
     })
 
-    const maybeLoadMore = useInfiniteLoader(fetchMoreData, {
-        isItemLoaded: (index, items) => !!items[index], // TODO: Check this logic, working
-    })
+    const maybeLoadMore = useInfiniteLoader(fetchMoreData)
 
     return (
         <Masonry
             items={showData}
             columnGutter={12}
             columnWidth={240}
-            overscanBy={1.25}
+            overscanBy={1}
             render={ImageGrids}
             onRender={maybeLoadMore}
         />

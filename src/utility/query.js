@@ -7,7 +7,7 @@ const clientId = process.env.REACT_APP_ACCESS_KEY
 
 const getImages = async function (key, nextPage = 1) {
     const { data, headers } = await axios.get(
-        `${url}/photos/?per_page=20&page=${nextPage}&client_id=${clientId}`
+        `${url}/photos/?per_page=40&page=${nextPage}&client_id=${clientId}`
     );
     return { result: data, link: headers.link };
 };
@@ -26,7 +26,7 @@ export function useImages() {
 
 const getSearchImages = async function (key, query, nextPage = 1) {
     const { data, headers } = await axios.get(
-        `${url}/search/photos/?per_page=20&query=${query}&page=${nextPage}&client_id=${clientId}`
+        `${url}/search/photos/?per_page=40&query=${query}&page=${nextPage}&client_id=${clientId}`
     );
     return { result: data.results, link: headers.link };
 };
@@ -34,6 +34,7 @@ const getSearchImages = async function (key, query, nextPage = 1) {
 export function useSearchImages(query) {
     return useInfiniteQuery(['images', query], getSearchImages, {
         getFetchMore: ({ link }) => {
+            //TODO: Performance check here
             const links = link.split(',')
             const last = links[links.length - 1]
             const found = last.match(regex);
