@@ -11,7 +11,10 @@ export default function ImageGrid({ fetchMoreData, data }) {
         return page.result
     })
 
-    const maybeLoadMore = useInfiniteLoader(fetchMoreData)
+    const maybeLoadMore = useInfiniteLoader(fetchMoreData, {
+        threshold: 4,
+        minimumBatchSize: 20
+    })
 
     return (
         <Masonry

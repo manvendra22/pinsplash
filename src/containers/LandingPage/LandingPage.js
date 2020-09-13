@@ -26,7 +26,9 @@ export default function LandingPage() {
     }
 
     function fetchMoreData() {
+        console.log(isFetching, isFetchingMore)
         if (!isFetching && !isFetchingMore) {
+            console.log('Fetching')
             fetchMore()
         }
     }
