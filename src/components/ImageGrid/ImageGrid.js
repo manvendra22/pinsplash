@@ -8,12 +8,7 @@ import { useDebounceCallback } from '@react-hook/debounce'
 import ImageBox from '../ImageBox/ImageBox'
 
 export default function ImageGrid({ fetchMoreData, data }) {
-    let showData = data.flatMap(page => {
-        return page.result
-    })
-
     const maybeLoadMore = useInfiniteLoader(function () {
-        console.log('maybeLoadMore', arguments)
         fetchMoreData()
     }, {
         // threshold: 1,
@@ -24,7 +19,7 @@ export default function ImageGrid({ fetchMoreData, data }) {
 
     return (
         <Masonry
-            items={showData}
+            items={data}
             columnGutter={12}
             columnWidth={240}
             overscanBy={1}

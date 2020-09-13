@@ -12,6 +12,18 @@ header {
   .link {
     margin-left: 5%;
   }
+
+  .logo {
+    height: 40px;
+    width: 40px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: transform 300ms;
+  }
+
+  .logo:hover {
+    transform: scale(1.1);
+  }
 }
 
 .searchbar {

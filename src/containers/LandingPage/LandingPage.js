@@ -12,9 +12,9 @@ export default function LandingPage() {
         data,
         error,
         fetchMore,
-        isFetching,
+        // isFetching,
         isFetchingMore,
-        // canFetchMore TODO: Use this to handle end of data case
+        canFetchMore
     } = useImages();
 
     if (status === "loading") {
@@ -25,15 +25,18 @@ export default function LandingPage() {
         return <div className="error">Error: {error.message}</div>
     }
 
+    let showData = data.flatMap(page => {
+        return page.result
+    })
+
     function fetchMoreData() {
-        // console.log({ canFetchMore })
-        if (!isFetching && !isFetchingMore) {
+        if (!isFetchingMore && canFetchMore) {
             fetchMore()
         }
     }
 
     return (
-        <ImageGrid fetchMoreData={fetchMoreData} data={data} />
+        <ImageGrid data={showData} fetchMoreData={fetchMoreData} canFetchMore={canFetchMore} />
     )
 }
 

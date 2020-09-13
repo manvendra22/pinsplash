@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, Link } from "react-router-dom";
 
 import './Header.scss'
 
 import Search from '../../assets/Search'
+import abstract from '../../assets/abstract.svg'
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -27,23 +28,22 @@ export default function Header() {
         }
     }
 
-    function goBack() {
-        history.goBack()
-    }
-
-    if (location.pathname.includes('/images')) {
-        return <header><span className="link" onClick={goBack}>&larr; Back</span></header>
-    }
-
     return (
         <header>
-            <div className="searchbar">
-                <div className="searchContainer">
-                    <Search className="icon" color="#2c3e50" />
-                    <input type="text" placeholder="Search here" value={value} onChange={e => setValue(e.target.value)} />
-                </div>
-                <button className="btn btn-primary" onClick={handleClick}>Search</button>
-            </div>
+            <Link to="/" onClick={() => setValue('')}>
+                <img alt="" src={abstract} className="logo" />
+            </Link>
+            {
+                location.pathname.includes('/images') ?
+                    <span className="link" onClick={history.goBack}>&larr; Back</span> :
+                    <div className="searchbar">
+                        <div className="searchContainer">
+                            <Search className="icon" color="#2c3e50" />
+                            <input type="text" placeholder="Search here" value={value} onChange={e => setValue(e.target.value)} />
+                        </div>
+                        <button className="btn btn-primary" onClick={handleClick}>Search</button>
+                    </div>
+            }
         </header>
     )
 }

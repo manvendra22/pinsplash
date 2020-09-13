@@ -2,6 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 
 import ImageGrid from '../../components/ImageGrid/ImageGrid'
+import Loader from '../../components/Loader/Loader'
 
 import { useSearchImages } from '../../utility/query'
 
@@ -19,26 +20,34 @@ export default function SearchPage() {
         error,
         fetchMore,
         // isFetching,
-        isFetchingMore
-        // canFetchMore
+        isFetchingMore,
+        canFetchMore
     } = useSearchImages(query.get("search"));
 
     if (status === "loading") {
-        return "Loading..."
+        return <Loader />
     }
 
     if (status === "error") {
-        return <span>Error: {error.message}</span>
+        return <div className="error">Error: {error.message}</div>
+    }
+
+    let showData = data.flatMap(page => {
+        return page.result
+    })
+
+    if (!showData.length) {
+        return <div className="error">Sorry, we couldn't find any Images for this search.</div>
     }
 
     function fetchMoreData() {
-        if (!isFetchingMore) {
+        if (!isFetchingMore && canFetchMore) {
             fetchMore()
         }
     }
 
     return (
-        <ImageGrid fetchMoreData={fetchMoreData} data={data} />
+        <ImageGrid data={showData} fetchMoreData={fetchMoreData} canFetchMore={canFetchMore} />
     )
 }
 
