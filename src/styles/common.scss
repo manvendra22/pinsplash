@@ -52,8 +52,9 @@
 .link {
   color: #1056ff;
   font-size: 20px;
-  // text-decoration: none;
-  // display: inline-block;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
   cursor: pointer;
   border-bottom: 2px solid #fff;
   transition: border 300ms;
