@@ -25,8 +25,8 @@ function App() {
     <div className="App">
       <Router>
         <Header />
-        <Suspense fallback={<Loader />}>
-          <main>
+        <main>
+          <Suspense fallback={<Loader />}>
             <Switch>
               <Route path="/" exact>
                 <LandingPage />
@@ -38,8 +38,8 @@ function App() {
                 <ImageDetails />
               </Route>
             </Switch>
-          </main>
-        </Suspense>
+          </Suspense>
+        </main>
       </Router>
       <ReactQueryDevtools />
     </div>
