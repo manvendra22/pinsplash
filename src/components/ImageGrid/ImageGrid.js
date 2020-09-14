@@ -35,6 +35,6 @@ const ImageGrids = ({ data: { id, urls, color, width, height }, width: widthT })
     const heightT = height / width * widthT;
 
     return <div style={{ background: color, borderRadius: '20px', height: heightT }} >
-        <ImageBox key={id} id={id} url={`${urls.raw}q=75&fm=jpg&w=${widthT}&dpr=${dpr}&fit=max`} />
+        <ImageBox key={id} id={id} url={`${urls.raw}q=75&auto=format&w=${widthT}&dpr=${dpr}&fit=max`} />
     </div >
 };

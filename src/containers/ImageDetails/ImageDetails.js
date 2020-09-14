@@ -50,21 +50,6 @@ export default function ImageDetails() {
         triggerDownload(data.urls.full, data.links.download_location, onDownloadProgress, downloadComplete)
     }
 
-    function shareImage() {
-        if (navigator.share) {
-            navigator.share({
-                title: 'Image',
-                text: 'Check out this image',
-                url: window.location.href
-            })
-                .then(() => cogoToast.success("Shared!", { position: 'top-right' }))
-                .catch((error) => cogoToast.error(error, { position: 'top-right' }));
-        } else {
-            navigator.clipboard.writeText(window.location.href)
-            cogoToast.success("Copied!", { position: 'top-right' });
-        }
-    }
-
     let heightT = 600
     let widthT = 600
     let innerWidth = window.innerWidth
@@ -82,7 +67,7 @@ export default function ImageDetails() {
     return (
         <div className="image-details">
             <div className="image" style={{ background: color, height: heightT, width: widthT }}>
-                <img alt="" src={`${urls.raw}q=75&fm=jpg&h=${heightT}&dpr=${dpr}&fit=max`} />
+                <img alt="" src={`${urls.raw}q=75&auto=format&h=${heightT}&dpr=${dpr}&fit=max`} />
             </div>
             <div className="details">
                 <div>
@@ -132,4 +117,19 @@ export default function ImageDetails() {
             </div>
         </div>
     )
+}
+
+function shareImage() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Image',
+            text: 'Check out this image',
+            url: window.location.href
+        })
+            .then(() => cogoToast.success("Shared!", { position: 'top-right' }))
+            .catch((error) => cogoToast.error(error, { position: 'top-right' }));
+    } else {
+        navigator.clipboard.writeText(window.location.href)
+        cogoToast.success("Copied!", { position: 'top-right' });
+    }
 }
