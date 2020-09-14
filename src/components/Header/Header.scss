@@ -10,13 +10,13 @@ header {
   align-items: center;
 
   .link {
-    margin-left: 20px;
+    margin: 0 auto;
   }
 
   .logo-title {
     position: absolute;
     left: 20px;
-    top: 20px;
+    top: 22.5%;
 
     .logo {
       height: 40px;
@@ -29,47 +29,64 @@ header {
       margin-left: 10px;
     }
 
+    @media (max-width: 1160px) {
+      .title {
+        display: none;
+      }
+    }
+
     &:hover {
       .logo {
         transform: scale(1.1);
       }
     }
   }
-}
 
-.searchbar {
-  display: flex;
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-
-  .search-container {
+  .searchbar {
     display: flex;
-    align-items: center;
-    border: 2px solid white;
-    border-radius: 10px;
-    padding: 0 15px;
-    margin-left: 15px;
-    width: 100%;
-    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
-    transition: border 300ms;
-    background: #fff;
+    width: 80%;
+    max-width: 700px;
+    margin: 0 auto;
 
-    &:focus-within {
-      border: 2px solid #3aabea;
+    .search-container {
+      display: flex;
+      align-items: center;
+      border: 2px solid white;
+      border-radius: 10px;
+      padding: 0 15px;
+      margin-left: 15px;
+      width: 100%;
+      box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+      transition: border 300ms;
+      background: #fff;
+
+      &:focus-within {
+        border: 2px solid #3aabea;
+      }
+
+      input {
+        height: 40px;
+        border: none;
+        outline: 0;
+        margin: 0 10px;
+        font-size: 14px;
+        width: 100%;
+      }
     }
 
-    input {
-      height: 40px;
-      border: none;
-      outline: 0;
-      margin: 0 10px;
-      font-size: 14px;
-      width: 100%;
+    .btn {
+      margin: 0 15px;
     }
   }
 
-  .btn {
-    margin: 0 15px;
+  @media (max-width: 577px) {
+    .logo-title {
+      position: unset;
+      margin-left: 20px;
+    }
+
+    .searchbar {
+      width: 100%;
+    }
   }
 }

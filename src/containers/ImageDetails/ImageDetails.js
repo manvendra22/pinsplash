@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import cogoToast from 'cogo-toast';
 
 import "./ImageDetails.scss"
@@ -19,6 +19,7 @@ const dpr = window.devicePixelRatio;
 export default function ImageDetails() {
     let { id } = useParams();
     const { status, data, error } = useImage(id);
+    const history = useHistory();
     const downloadButton = useRef()
 
     if (status === "loading") {

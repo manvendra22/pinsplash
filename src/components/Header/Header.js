@@ -4,7 +4,7 @@ import { useHistory, useLocation, Link } from "react-router-dom";
 import './Header.scss'
 
 import Search from '../../assets/Search'
-import abstract from '../../assets/abstract.svg'
+import logo from '../../assets/logo.svg'
 import title from '../../assets/title3.svg'
 
 function useQuery() {
@@ -13,9 +13,9 @@ function useQuery() {
 
 export default function Header() {
     const [value, setValue] = useState('')
-    let history = useHistory();
-    let location = useLocation();
-    let search = useRef(useQuery().get("search"))
+    const history = useHistory();
+    const location = useLocation();
+    const search = useRef(useQuery().get("search"))
 
     useEffect(function () {
         if (search.current) {
@@ -33,7 +33,7 @@ export default function Header() {
         <header>
             <Link to="/" onClick={() => setValue('')}>
                 <div className="logo-title">
-                    <img alt="" src={abstract} className="logo" />
+                    <img alt="" src={logo} className="logo" />
                     <img alt="" src={title} className="title" />
                 </div>
             </Link>
