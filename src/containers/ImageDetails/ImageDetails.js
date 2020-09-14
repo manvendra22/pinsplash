@@ -31,13 +31,17 @@ export default function ImageDetails() {
 
     function onDownloadProgress(progressEvent) {
         const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
-        downloadButton.current.firstChild.style.width = `${progress}%`
+        if (downloadButton.current) {
+            downloadButton.current.firstChild.style.width = `${progress}%`
+        }
     }
 
     function downloadComplete() {
-        downloadButton.current.disabled = false;
-        downloadButton.current.style.background = null;
-        downloadButton.current.firstChild.style.width = '0%'
+        if (downloadButton.current) {
+            downloadButton.current.disabled = false;
+            downloadButton.current.style.background = null;
+            downloadButton.current.firstChild.style.width = '0%'
+        }
     }
 
     function downloadImage() {
