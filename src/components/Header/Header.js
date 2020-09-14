@@ -49,7 +49,7 @@ export default function Header() {
                     <div className="searchbar">
                         <div className="search-container">
                             <Search className="icon" color="#2c3e50" />
-                            <input type="text" placeholder="Search here" value={value} onChange={e => setValue(e.target.value)} />
+                            <input type="text" placeholder="Search images" value={value} onChange={e => setValue(e.target.value)} />
                         </div>
                         <button className="btn btn-primary" onClick={handleClick}>Search</button>
                     </div>
