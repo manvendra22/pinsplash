@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import cogoToast from 'cogo-toast';
 
 import "./ImageDetails.scss"
@@ -19,7 +19,6 @@ const dpr = window.devicePixelRatio;
 export default function ImageDetails() {
     let { id } = useParams();
     const { status, data, error } = useImage(id);
-    const history = useHistory();
     const downloadButton = useRef()
 
     if (status === "loading") {
@@ -96,11 +95,13 @@ export default function ImageDetails() {
                         </div>
                     </div>
                     <div className="description">
-                        {location.title &&
-                            <div className="location icon-container">
+                        {
+                            location.title &&
+                            <div className="icon-container">
                                 <Location className="icon" color="#2c3e50" />
-                                {location.title}
-                            </div>}
+                                <span className="address">{location.title}</span>
+                            </div>
+                        }
                         <div>{description}</div>
                     </div>
                 </div>

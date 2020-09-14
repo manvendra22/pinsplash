@@ -5,11 +5,12 @@ import './Header.scss'
 
 import Search from '../../assets/Search'
 import logo from '../../assets/logo.svg'
-import title from '../../assets/title3.svg'
+import logotitle from '../../assets/logo-title.svg'
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
+
 
 export default function Header() {
     const [value, setValue] = useState('')
@@ -29,12 +30,17 @@ export default function Header() {
         }
     }
 
+    let logoSrc = logotitle
+
+    if (window.innerWidth <= 1160) {
+        logoSrc = logo
+    }
+
     return (
         <header>
             <Link to="/" onClick={() => setValue('')}>
                 <div className="logo-title">
-                    <img alt="" src={logo} className="logo" />
-                    <img alt="" src={title} className="title" />
+                    <img alt="" src={logoSrc} className="logo" />
                 </div>
             </Link>
             {

@@ -20,24 +20,12 @@ header {
 
     .logo {
       height: 40px;
-      width: 40px;
       transition: transform 300ms;
-    }
-
-    .title {
-      height: 30px;
-      margin-left: 10px;
-    }
-
-    @media (max-width: 1160px) {
-      .title {
-        display: none;
-      }
     }
 
     &:hover {
       .logo {
-        transform: scale(1.1);
+        transform: scale(1.05);
       }
     }
   }
@@ -80,6 +68,10 @@ header {
   }
 
   @media (max-width: 577px) {
+    .link {
+      margin-left: 20px;
+    }
+
     .logo-title {
       position: unset;
       margin-left: 20px;

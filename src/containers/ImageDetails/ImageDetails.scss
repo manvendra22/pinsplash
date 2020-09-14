@@ -1,6 +1,4 @@
 .image-details {
-  text-align: center;
-
   .image {
     margin: 0 auto;
 
@@ -14,6 +12,10 @@
     justify-content: space-between;
     margin-top: 20px;
     font-size: 14px;
+
+    .icon {
+      margin-right: 5px;
+    }
 
     .statistics {
       display: flex;
@@ -36,22 +38,17 @@
 
     .description {
       display: flex;
-      align-items: center;
+      flex-direction: column;
       color: #767676;
-    }
 
-    .location {
-      color: black;
-      margin-right: 20px;
-    }
-
-    .icon {
-      margin-right: 5px;
+      .address {
+        color: black;
+      }
     }
 
     .btns {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
 
       .btn {
         position: relative;
@@ -78,6 +75,18 @@
     .details {
       flex-direction: column;
       align-items: center;
+    }
+
+    .description {
+      align-items: center;
+    }
+
+    .statistics {
+      justify-content: center;
+    }
+
+    .btns {
+      margin-top: 20px;
     }
   }
 }
