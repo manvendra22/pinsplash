@@ -10,6 +10,7 @@ import './styles/App.scss';
 import "./styles/common.scss";
 
 import Header from './components/Header/Header'
+import Loader from './components/Loader/Loader'
 
 // import LandingPage from './containers/LandingPage/LandingPage'
 // import SearchPage from './containers/SearchPage/SearchPage'
@@ -24,7 +25,7 @@ function App() {
     <div className="App">
       <Router>
         <Header />
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader />}>
           <main>
             <Switch>
               <Route path="/" exact>
