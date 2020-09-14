@@ -13,16 +13,27 @@ header {
     margin-left: 20px;
   }
 
-  .logo {
-    height: 40px;
-    width: 40px;
-    margin-left: 20px;
-    cursor: pointer;
-    transition: transform 300ms;
-  }
+  .logo-title {
+    position: absolute;
+    left: 20px;
+    top: 20px;
 
-  .logo:hover {
-    transform: scale(1.1);
+    .logo {
+      height: 40px;
+      width: 40px;
+      transition: transform 300ms;
+    }
+
+    .title {
+      height: 30px;
+      margin-left: 10px;
+    }
+
+    &:hover {
+      .logo {
+        transform: scale(1.1);
+      }
+    }
   }
 }
 
@@ -32,7 +43,7 @@ header {
   max-width: 700px;
   margin: 0 auto;
 
-  .searchContainer {
+  .search-container {
     display: flex;
     align-items: center;
     border: 2px solid white;

@@ -5,6 +5,7 @@ import './Header.scss'
 
 import Search from '../../assets/Search'
 import abstract from '../../assets/abstract.svg'
+import title from '../../assets/title3.svg'
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -31,13 +32,16 @@ export default function Header() {
     return (
         <header>
             <Link to="/" onClick={() => setValue('')}>
-                <img alt="" src={abstract} className="logo" />
+                <div className="logo-title">
+                    <img alt="" src={abstract} className="logo" />
+                    <img alt="" src={title} className="title" />
+                </div>
             </Link>
             {
                 location.pathname.includes('/images') ?
                     <span className="link" onClick={history.goBack}>&larr; Back</span> :
                     <div className="searchbar">
-                        <div className="searchContainer">
+                        <div className="search-container">
                             <Search className="icon" color="#2c3e50" />
                             <input type="text" placeholder="Search here" value={value} onChange={e => setValue(e.target.value)} />
                         </div>
