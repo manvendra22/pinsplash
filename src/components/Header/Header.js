@@ -22,7 +22,20 @@ export default function Header() {
         if (search.current) {
             setValue(search.current)
         }
+
+        // TODO: Check why this logic didn't work ?
+        // window.addEventListener('keypress', handleKeyPress)
+
+        // return function () {
+        //     window.removeEventListener('keypress', handleKeyPress)
+        // }
     }, [])
+
+    function handleKeyPress(e) {
+        if (e.key === 'Enter') {
+            handleClick()
+        }
+    }
 
     function handleClick() {
         if (value) {
@@ -49,7 +62,7 @@ export default function Header() {
                     <div className="searchbar">
                         <div className="search-container">
                             <Search className="icon" color="#2c3e50" />
-                            <input type="text" placeholder="Search images" value={value} onChange={e => setValue(e.target.value)} />
+                            <input type="text" placeholder="Search images" value={value} onChange={e => setValue(e.target.value)} onKeyPress={handleKeyPress} />
                         </div>
                         <button className="btn btn-primary" onClick={handleClick}>Search</button>
                     </div>
