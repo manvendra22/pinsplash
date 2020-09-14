@@ -14,6 +14,8 @@ import Location from '../../assets/Location'
 
 import Loader from '../../components/Loader/Loader'
 
+const dpr = window.devicePixelRatio;
+
 export default function ImageDetails() {
     let { id } = useParams();
     const { status, data, error } = useImage(id);
@@ -59,13 +61,24 @@ export default function ImageDetails() {
         }
     }
 
+    let heightT = 600
+    let widthT = 600
+    let innerWidth = window.innerWidth
+    innerWidth = innerWidth - (innerWidth * 10 / 100)
+
     const { urls, views, likes, downloads, location, description, color, width, height } = data
-    const widthT = width / height * 600;
+
+    widthT = width / height * heightT;
+
+    if (widthT >= innerWidth) {
+        widthT = innerWidth
+        heightT = height / width * widthT;
+    }
 
     return (
         <div className="image-details">
-            <div className="image" style={{ background: color, height: '600px', width: widthT }}>
-                <img alt="" src={urls.raw + 'q=75&fm=jpg&h=600&fit=max'} />
+            <div className="image" style={{ background: color, height: heightT, width: widthT }}>
+                <img alt="" src={`${urls.raw}q=75&fm=jpg&h=${heightT}&dpr=${dpr}&fit=max`} />
             </div>
             <div className="details">
                 <div>

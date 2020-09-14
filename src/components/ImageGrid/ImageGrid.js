@@ -7,6 +7,8 @@ import { useDebounceCallback } from '@react-hook/debounce'
 
 import ImageBox from '../ImageBox/ImageBox'
 
+const dpr = window.devicePixelRatio;
+
 export default function ImageGrid({ fetchMoreData, data }) {
     const maybeLoadMore = useInfiniteLoader(function () {
         fetchMoreData()
@@ -33,6 +35,6 @@ const ImageGrids = ({ data: { id, urls, color, width, height }, width: widthT })
     const heightT = height / width * widthT;
 
     return <div style={{ background: color, borderRadius: '20px', height: heightT }} >
-        <ImageBox key={id} id={id} url={urls.raw + 'q=75&fm=jpg&w=720&fit=max'} />
+        <ImageBox key={id} id={id} url={`${urls.raw}q=75&fm=jpg&w=${widthT}&dpr=${dpr}&fit=max`} />
     </div >
 };
