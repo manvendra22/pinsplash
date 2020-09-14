@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
     Masonry,
     useInfiniteLoader,
 } from 'masonic'
 import { useDebounceCallback } from '@react-hook/debounce'
 
-import ImageBox from '../ImageBox/ImageBox'
+import './ImageGrid.scss'
 
 const dpr = window.devicePixelRatio;
 
@@ -35,6 +36,8 @@ const ImageGrids = ({ data: { id, urls, color, width, height }, width: widthT })
     const heightT = height / width * widthT;
 
     return <div style={{ background: color, borderRadius: '15px', height: heightT }} >
-        <ImageBox key={id} id={id} url={`${urls.raw}q=75&auto=format&w=${widthT}&dpr=${dpr}&fit=max`} />
+        <Link to={`/images/${id}`} className="image-link">
+            <img alt="" src={`${urls.raw}q=75&auto=format&w=${widthT}&dpr=${dpr}&fit=max`} loading="lazy" />
+        </Link>
     </div >
 };
