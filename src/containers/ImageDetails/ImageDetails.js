@@ -70,40 +70,40 @@ export default function ImageDetails() {
                 <img alt="" src={`${urls.raw}q=75&auto=format&h=${heightT}&dpr=${dpr}&fit=max`} />
             </div>
             <div className="details">
-                <div>
-                    <div className="statistics">
-                        <div className="statistic">
-                            <div className="icon-container">
-                                <View className="icon" color="#2c3e50" />
+                <div className="stats">
+                    <div className="stat">
+                        <div className="icon-container">
+                            <View className="icon" color="#2c3e50" />
                                 Views
                             </div>
-                            <div className="value">{views}</div>
-                        </div>
-                        <div className="statistic">
-                            <div className="icon-container">
-                                <Like className="icon" color="#2c3e50" />
+                        <div className="value">{views}</div>
+                    </div>
+                    <div className="stat">
+                        <div className="icon-container">
+                            <Like className="icon" color="#2c3e50" />
                                 Likes
                             </div>
-                            <div className="value">{likes}</div>
-                        </div>
-                        <div className="statistic">
-                            <div className="icon-container">
-                                <Download className="icon" color="#2c3e50" />
+                        <div className="value">{likes}</div>
+                    </div>
+                    <div className="stat">
+                        <div className="icon-container">
+                            <Download className="icon" color="#2c3e50" />
                                 Downloads
                             </div>
-                            <div className="value">{downloads}</div>
+                        <div className="value">{downloads}</div>
+                    </div>
+                </div>
+                <div className="description">
+                    {
+                        (location.title || location.city) &&
+                        <div className="icon-container">
+                            <Location className="icon" color="#2c3e50" />
+                            <span className="address">{location.title || location.city}</span>
                         </div>
-                    </div>
-                    <div className="description">
-                        {
-                            location.title &&
-                            <div className="icon-container">
-                                <Location className="icon" color="#2c3e50" />
-                                <span className="address">{location.title}</span>
-                            </div>
-                        }
-                        <div>{description}</div>
-                    </div>
+                    }
+                    {
+                        description && <div>{description}</div>
+                    }
                 </div>
                 <div className="btns">
                     <button ref={downloadButton} className="btn btn-secondary icon-container" onClick={downloadImage}>

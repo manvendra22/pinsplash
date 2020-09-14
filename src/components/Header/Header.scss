@@ -9,10 +9,6 @@ header {
   display: flex;
   align-items: center;
 
-  .link {
-    margin-left: 190px;
-  }
-
   .logo-title {
     position: absolute;
     left: 20px;
@@ -32,7 +28,7 @@ header {
 
   .searchbar {
     display: flex;
-    width: 80%;
+    width: 100%;
     max-width: 700px;
     margin: 0 auto;
 
@@ -67,7 +63,11 @@ header {
     }
   }
 
-  @media (max-width: 577px) {
+  .link {
+    margin-left: 190px;
+  }
+
+  @media (max-width: 1160px) {
     .link {
       margin-left: 20px;
     }
@@ -75,10 +75,6 @@ header {
     .logo-title {
       position: unset;
       margin-left: 20px;
-    }
-
-    .searchbar {
-      width: 100%;
     }
   }
 }

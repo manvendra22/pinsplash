@@ -17,16 +17,15 @@
       margin-right: 5px;
     }
 
-    .statistics {
+    .stats {
       display: flex;
-      margin-bottom: 20px;
 
-      .statistic {
+      .stat {
         text-align: center;
         margin-right: 20px;
       }
 
-      .statistic:last-child {
+      .stat:last-child {
         margin-right: unset;
       }
 
@@ -39,7 +38,9 @@
     .description {
       display: flex;
       flex-direction: column;
+      align-items: center;
       color: #767676;
+      margin: 0 20px;
 
       .address {
         color: black;
@@ -71,22 +72,20 @@
     }
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 1160px) {
     .details {
       flex-direction: column;
       align-items: center;
-    }
 
-    .description {
-      align-items: center;
-    }
+      .stats {
+        justify-content: center;
+        margin-bottom: 20px;
+      }
 
-    .statistics {
-      justify-content: center;
-    }
-
-    .btns {
-      margin-top: 20px;
+      .description {
+        margin: unset;
+        margin-bottom: 20px;
+      }
     }
   }
 }
