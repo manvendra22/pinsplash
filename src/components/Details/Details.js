@@ -35,7 +35,6 @@ export default function Details({ data: { urls, links, views, likes, downloads, 
         triggerDownload(urls.full, links.download_location, onDownloadProgress, downloadComplete)
     }
 
-
     return (
         <div className="details">
             <div className="stats">
@@ -95,8 +94,8 @@ function shareImage() {
             text: 'Check out this image',
             url: window.location.href
         })
-            .then(() => cogoToast.success("Shared!", { position: 'top-right' }))
-            .catch((error) => cogoToast.error(error, { position: 'top-right' }));
+            .then(() => console.log("Shared!"))
+            .catch((error) => console.error(error))
     } else {
         navigator.clipboard.writeText(window.location.href)
         cogoToast.success("Copied!", { position: 'top-right' });
