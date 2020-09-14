@@ -22,7 +22,7 @@ export default function ImageGrid({ fetchMoreData, data }) {
     return (
         <Masonry
             items={data}
-            columnGutter={12}
+            columnGutter={16}
             columnWidth={240}
             overscanBy={1}
             render={ImageGrids}
@@ -34,7 +34,7 @@ export default function ImageGrid({ fetchMoreData, data }) {
 const ImageGrids = ({ data: { id, urls, color, width, height }, width: widthT }) => {
     const heightT = height / width * widthT;
 
-    return <div style={{ background: color, borderRadius: '20px', height: heightT }} >
+    return <div style={{ background: color, borderRadius: '15px', height: heightT }} >
         <ImageBox key={id} id={id} url={`${urls.raw}q=75&auto=format&w=${widthT}&dpr=${dpr}&fit=max`} />
     </div >
 };
