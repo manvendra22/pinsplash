@@ -1,7 +1,6 @@
 # Pinsplash
 
 ### Live link
-
 https://pinsplash.netlify.app/
 
 ![Screenshot](https://res.cloudinary.com/dracarys/image/upload/pinsplash.png)
@@ -13,13 +12,16 @@ https://pinsplash.netlify.app/
 ![Screenshot](/misc/pagespeed_insights_mobile.png)
 
 ### Tech stack:
-
 - React
 - React Query
 - SCSS
+- Masonic
+
+### APIs:
+
+- Unsplash API
 
 ### Installation
-
 It requires Node and NPM to run.
 Clone the project from github.
 
@@ -28,14 +30,11 @@ Clone the project from github.
     $ npm install
 
 ### Available scripts
-
 In the project directory, you can run:
 
 #### `npm start`
-
 Runs the app in the development mode.<br />
 Open http://localhost:3000 to view it in the browser.
 
 #### `npm run build`
-
 Builds the app for production to the `build` folder.
