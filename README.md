@@ -5,23 +5,29 @@ https://pinsplash.netlify.app/
 
 ![Screenshot](https://res.cloudinary.com/dracarys/image/upload/pinsplash.png)
 
-### Performance
+### Performance (Pagespeed insights score)
+
+#### Desktop
 
 ![Screenshot](/misc/pagespeed_insights_desktop.png)
 
+#### Mobile
+
 ![Screenshot](/misc/pagespeed_insights_mobile.png)
 
-### Tech stack:
+### Tech stack
+
 - React
 - React Query
 - SCSS
 - Masonic
 
-### APIs:
+### APIs
 
 - Unsplash API
 
 ### Installation
+
 It requires Node and NPM to run.
 Clone the project from github.
 
@@ -30,6 +36,7 @@ Clone the project from github.
     $ npm install
 
 ### Available scripts
+
 In the project directory, you can run:
 
 #### `npm start`
