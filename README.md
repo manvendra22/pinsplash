@@ -9,6 +9,11 @@ https://pinsplash.netlify.app/
 - React
 - React Query
 - SCSS
+- Masonic
+
+### APIs:
+
+- Unsplash API
 
 ### Installation
 It requires Node and NPM to run.
