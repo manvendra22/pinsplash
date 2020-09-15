@@ -6,6 +6,12 @@ https://pinsplash.netlify.app/
 
 ![Screenshot](https://res.cloudinary.com/dracarys/image/upload/pinsplash.png)
 
+### Performance
+
+![Screenshot](/misc/pagespeed_insights_desktop.png)
+
+![Screenshot](/misc/pagespeed_insights_mobile.png)
+
 ### Tech stack:
 
 - React
