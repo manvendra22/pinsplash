@@ -11,7 +11,7 @@ import Share from '../../assets/Share'
 import Download from '../../assets/Download'
 import Location from '../../assets/Location'
 
-export default function Details({ data: { urls, links, views, likes, downloads, location, description } }) {
+export default function Details({ data: { urls, links, views, likes, downloads, location, alt_description } }) {
     const downloadButton = useRef()
 
     function onDownloadProgress(progressEvent) {
@@ -63,13 +63,13 @@ export default function Details({ data: { urls, links, views, likes, downloads, 
             <div className="description">
                 {
                     (location.title || location.city) &&
-                    <div className="icon-container">
+                    <div className="address icon-container">
                         <Location className="icon" color="#2c3e50" />
-                        <span className="address">{location.title || location.city}</span>
+                        <span>{location.title || location.city}</span>
                     </div>
                 }
                 {
-                    description && <div>{description}</div>
+                    alt_description && <div>{alt_description}</div>
                 }
             </div>
             <div className="btns">
